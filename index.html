@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+.time-line{
+    width: 1000px;
+    margin: 100px auto;
+    position: relative;
+    /* background:green; */
+}
+.time-line::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    height: 100%;
+    width: 5px;
+    background: linear-gradient(to right, #a246ef, #6523fe);
+    border-radius: 50px;
+    animation: animate 7s linear forwards;
+    z-index: -1;
+}
+@keyframes animate {
+    0%{
+        height: 0;
+    }
+    100%{
+        height: 100%;
+    }
+}
+.container{
+    width: 50%;
+    position: relative;
+    /* background: red; */
+    padding: 10px 20px;
+    animation: animate-container 0.5s linear forwards;
+    opacity: 0;
+    animation-delay: var(--dt);
+}
+@keyframes animate-container {
+    0%{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+.container:nth-child(even){
+    right: -50%;
+}
+.container:nth-child(odd)::before{
+    content: '';
+    top: 0;
+    right: -7px;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: linear-gradient(to right, #a246ef, #6523fe);
+    border-radius: 50%;
+    z-index: 1;
+}
+.container:nth-child(even)::before{
+    content: '';
+    top: 0;
+    left: -12.2px;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: linear-gradient(to right, #a246ef, #6523fe);
+    border-radius: 50%;
+    z-index: 1;
+}
+.content{
+    padding: 20px 30px;
+    /* background-color: gray; */
+    border-radius: 10px;
+    box-shadow: 0 5px 10px #1919196d;
+    background:  #b74b4b;
+}
+.content h2{
+    font-size: 25px;
+    font-weight: 600;
+    color: #ffffff;
+    padding-bottom: 14px;
+}
+.content p{
+    font-size: 14px;
+    line-height: 24px;
+    color: #ffffff;
+}
+/* Responsive Code */
+@media screen and (max-width:1020px) {
+    .container:nth-child(even){
+        right: 0;
+    }
+    .time-line{
+        width: 400px;
+    }
+    .container{
+        width: 100%;
+    }
+    .time-line::after{
+        top: 0;
+        right: 0;
+    }
+    .container:nth-child(even)::before{
+        top: 0;
+        left: 97%;
+    }
+}
+/* Responsive Code */
+@media screen and (max-width:1020px) {
+    .container:nth-child(even){
+        right: 0;
+    }
+    .time-line{
+        width: 400px;
+    }
+    .container{
+        width: 100%;
+    }
+    .time-line::after{
+        top: 0;
+        right: 0;
+    }
+    .container:nth-child(even)::before{
+        top: 0;
+        left: 97%;
+    }
+}
+
+
+  .section {
+    height: 100vh;
+    display: flex;
+    padding: 0 4em;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .containers {
+    perspective: 1000px;
+    height: 28vh;
+    width: 100%;
+    cursor: pointer;
+  }
+  .card {
+    transform-style: preserve-3d;
+    height: 100%;
+    width: 100%;
+    transition: 0.5s ease;
+  }
+  .front,
+  .back {
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0.4em;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    backface-visibility: hidden;
+  }
+  .front {
+    background: linear-gradient(to right,  #b74b4b, #df3b0a);
+  }
+  .front img {
+    width: 5em;
+  }
+  .contents {
+    transform: translateZ(60px);
+  }
+  .contents h3 {
+    font-size: 22px;
+    margin-top: 1em;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .contents p {
+    font-size: 14px;
+    line-height: 2em;
+    letter-spacing: 0.02em;
+    padding: 0 3em;
+  }
+  .back {
+    background-color: #8E3999;
+    transform: rotateX(180deg);
+  }
+  .containers:hover .card {
+    transform: rotateX(180deg);
+  }
+  @media screen and (min-width: 992px) {
+  
+  .containers {
+    flex-basis: 0 0 33.33%;
+    max-width: 33.33%;
+    padding: 0 1.5em;
+  }
+}
+    </style>
+</head>
+<body>
+    <section class="section">
+        <div class="containers">
+          <div class="card">
+            <div class="front">
+              <div class="contents">
+                <img src="img/1.svg" />
+                <h3>Marketing</h3>
+              </div>
+            </div>
+            <div class="back">
+              <div class="contents">
+                <p>
+                    Smarder empowers your business with dynamic marketing strategies.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="containers">
+          <div class="card">
+            <div class="front">
+              <div class="contents">
+                <img src="img/2.svg" />
+                <h3>Lead Capture</h3>
+              </div>
+            </div>
+            <div class="back">
+              <div class="contents">
+                <p>
+                    Simplify the way you attract new customers.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="containers">
+          <div class="card">
+            <div class="front">
+              <div class="contents">
+                <img src="img/3.svg" />
+                <h3>Quoting & Communication:</h3>
+              </div>
+            </div>
+            <div class="back">
+              <div class="contents">
+                <p>
+                  LEnhance client communication with efficient quoting.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="containers">
+            <div class="card">
+              <div class="front">
+                <div class="contents">
+                  <img src="img/4.svg" />
+                  <h3>Job Management</h3>
+                </div>
+              </div>
+              <div class="back">
+                <div class="contents">
+                  <p>
+                    Stay organized and on schedule with Smarder's job management tools.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="containers">
+            <div class="card">
+              <div class="front">
+                <div class="contents">
+                  <img src="img/5.svg" />
+                  <h3>Invoice & Payment:</h3>
+                </div>
+              </div>
+              <div class="back">
+                <div class="contents">
+                  <p>
+                    Get paid faster with streamlined invoicing solutions.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="containers">
+            <div class="card">
+              <div class="front">
+                <div class="contents">
+                  <img src="img/6.svg" />
+                  <h3>Accounting Support:</h3>
+                </div>
+              </div>
+              <div class="back">
+                <div class="contents">
+                  <p>
+                    Manage finances effortlessly with Smarder's tools.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
+</body>
+</html>
